@@ -3,15 +3,18 @@ all:
     servers:
       hosts:
         server-0:
+          ansible_host: "192.168.1.1"
           ansible_port: 22
-          nox_instances: [0]
+          fluence_instance_id: "nox-0"
         server-1:
+          ansible_host: "192.168.1.2"
           ansible_port: 22
-          nox_instances: [1]
+          fluence_instance_id: "nox-0"
+
       vars:
-        ansible_user: "" # need to be set according to server settings
-        ansible_host: "" # need to be set according to server settings
-        ansible_ssh_common_args: "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-        nox_version: "0.18.0" # hardcoded compatible with fcli 0.18.1
-        nox_project_dir: "" # need to be set according to folder name inside files directory
+        # Need to be set according to the required version for the following components.
+        nox_version: "0.22.0"
         ipfs_cli_version: "0.26.0"
+        ccp_version: "0.2.0"
+        # Need to be set according to folder name inside files directory
+        fluence_project_dir: "any_project_name"
